@@ -1,0 +1,123 @@
+
+/* Scroll Sections active link */
+let sections = document.querySelectorAll('section'); 
+let navLinks = document.querySelectorAll('header nav a');
+
+ 
+window.onscroll = () =>{
+sections.forEach(sec =>{
+    let top = window.scrollY; 
+    let offset = sec.offsetTop - 150;
+    let heigth = sec.offsetHeight; 
+    let id = sec.getAttribute('id'); 
+
+    if(top >= offset && top < offset + heigth){
+        navLinks.forEach(links =>{
+            links.classList.remove('active'); 
+            document.querySelector('header nav a[href*='+id+']').classList.add('active')
+        })
+    }
+})
+/* Sticky navbar*/ 
+let header = document.querySelector('.header'); 
+header.classList.toggle('sticky',window.scrollY > 100);
+}
+
+var swiper = new Swiper(".mySwiper", {
+    slidesPreView:1,
+    spaceBetween:50,
+    loop:true,
+    grabCursor:true, 
+    pagination: {
+      el: ".swiper-pagination",
+      clickable:true
+    },
+    navigation:{
+        nextEl: ".swiper-button-next",
+        prevEl :"swiper-button-prev"
+    },
+  });
+
+  var swiperSkils = new Swiper(".mySwiperSkills", {
+    effect: "flip",
+      grabCursor: true,
+      pagination: {
+        el: ".swiper-pagination",
+      },
+      navigation: {
+        nextEl: ".swiper-button-next",
+        prevEl: ".swiper-button-prev",
+      },
+  });
+
+
+/*   dark mode */
+
+let darkModeIcon = document.querySelector('#darkMode-icon');
+darkModeIcon.onclick = () =>{
+    darkModeIcon.classList.toggle('bx-sun');
+    document.body.classList.toggle('dark-mode')
+}
+/*  Scrolll Reveal */
+ScrollReveal({
+    reset: true , 
+    distance : '80px',
+    duration : 2000 , 
+    delay:200
+});
+ScrollReveal().reveal('.home-content, .heading',  { origin: 'top' });
+ScrollReveal().reveal('.home-img img, .services-container , .portfolio-box , .testimonial-wrapper, .contact form'
+, { origin: 'bottom' });
+ScrollReveal().reveal('.home-content h1, .about-img img ',  { origin: 'left' });
+ScrollReveal().reveal('.about-content ',  { origin: 'right' });
+ScrollReveal().reveal('.skills-box ',  { origin: 'bottom' });
+ScrollReveal().reveal('.education-column ',  { origin: 'bottom' });
+
+
+
+
+
+let button = document.querySelector('#send') ;
+
+button.addEventListener('click', () => {
+
+  let name = document.getElementById("fullname").value;
+  let email = document.getElementById("email").value;
+  let subject = document.getElementById("subject").value;
+  let tel = document.getElementById("tel").value;
+  let message = document.getElementById("message").value;
+
+
+    console.log(data)
+  // sendEmail(); 
+});
+
+// async function sendEmail() {
+//   // Create a transporter object
+//   let transporter = nodemailer.createTransport({
+//     host: 'your_smtp_server_address',
+//     port: 587,
+//     secure: false, // Set to true if using SSL/TLS
+//     auth: {
+//       user: 'ghaithbouslimi3@gmail.com',
+//       pass: 'gb@95027629/'
+//     }
+//   });
+
+//   // Define email options
+//   let mailOptions = {
+//     from: 'your_email@example.com',
+//     to: 'ghaithbouslimi3@gmail.com',
+//     subject: 'Email Subject',
+//     text: 'Email Message'
+//   };
+
+//   try {
+//     // Send email
+//     let info = await transporter.sendMail(mailOptions);
+//     console.log('Email sent: ' + info.response);
+//   } catch (error) {
+//     console.error('Error sending email: ' + error);
+//   }
+// }
+
