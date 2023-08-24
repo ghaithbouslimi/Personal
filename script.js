@@ -1,4 +1,16 @@
 
+let menuIcon= document.querySelector('#menu-icon');
+let navbar = document.querySelector('.navbar')
+
+menuIcon.onclick = () => {
+  menuIcon.classList.toggle('bx-x') ; 
+  navbar.classList.toggle('active');
+
+};
+
+
+
+
 /* Scroll Sections active link */
 let sections = document.querySelectorAll('section'); 
 let navLinks = document.querySelectorAll('header nav a');
@@ -21,6 +33,11 @@ sections.forEach(sec =>{
 /* Sticky navbar*/ 
 let header = document.querySelector('.header'); 
 header.classList.toggle('sticky',window.scrollY > 100);
+
+menuIcon.classList.remove('bx-x') ; 
+  navbar.classList.remove('active');
+
+
 }
 
 var swiper = new Swiper(".mySwiper", {
@@ -76,48 +93,13 @@ ScrollReveal().reveal('.education-column ',  { origin: 'bottom' });
 
 
 
+  
+  var fname = document.getElementById("Firstname").value;
+  var lname = document.getElementById("Lastname").value;
+  var email = document.getElementById("subject").value;
+  var tel = document.getElementById("tel").value;
+  var message = document.getElementById("message").value;
+  var body =  'br/> message : ' + message  ; 
+ 
 
-let button = document.querySelector('#send') ;
-
-button.addEventListener('click', () => {
-
-  let name = document.getElementById("fullname").value;
-  let email = document.getElementById("email").value;
-  let subject = document.getElementById("subject").value;
-  let tel = document.getElementById("tel").value;
-  let message = document.getElementById("message").value;
-
-
-    console.log(data)
-  // sendEmail(); 
-});
-
-// async function sendEmail() {
-//   // Create a transporter object
-//   let transporter = nodemailer.createTransport({
-//     host: 'your_smtp_server_address',
-//     port: 587,
-//     secure: false, // Set to true if using SSL/TLS
-//     auth: {
-//       user: 'ghaithbouslimi3@gmail.com',
-//       pass: 'gb@95027629/'
-//     }
-//   });
-
-//   // Define email options
-//   let mailOptions = {
-//     from: 'your_email@example.com',
-//     to: 'ghaithbouslimi3@gmail.com',
-//     subject: 'Email Subject',
-//     text: 'Email Message'
-//   };
-
-//   try {
-//     // Send email
-//     let info = await transporter.sendMail(mailOptions);
-//     console.log('Email sent: ' + info.response);
-//   } catch (error) {
-//     console.error('Error sending email: ' + error);
-//   }
-// }
 
